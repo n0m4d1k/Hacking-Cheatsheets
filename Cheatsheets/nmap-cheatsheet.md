@@ -3,7 +3,7 @@
 ## My Go-to scan
 `nmap -sV -sC -vvv -oN scan.txt 10.10.10.198`
 
-## Full TCP port scan using with service version detection
+## Full TCP port scan using service version detection
 `nmap -p 1-65535 -sV -sS -T4 target`
 
 ## Firewall Bypass
