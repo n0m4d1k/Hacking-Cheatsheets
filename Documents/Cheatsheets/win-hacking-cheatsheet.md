@@ -78,6 +78,3 @@ hashcat -m 1000 -a 0 -o plain-pass.txt --remove file-with-hash.hash /usr/share/w
 
 ### Show Routing table
 `route print`
-
-### TEST
-test test test
