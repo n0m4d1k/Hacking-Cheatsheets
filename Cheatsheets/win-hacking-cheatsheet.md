@@ -34,7 +34,6 @@ _Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::_
 _USERNAME:SID:LM(BLANK=aad3b435b51404eeaad3b435b51404ee):NTLM:::_
 
 `hashcat -m 1000 -a 0 -o plain-pass.txt --remove file-with-hash.hash /usr/share/wordlists/rockyou.txt`
-```
 
 ## Find file containing keyword
 `findstr /si password *.txt | *.xml | *.xls`
