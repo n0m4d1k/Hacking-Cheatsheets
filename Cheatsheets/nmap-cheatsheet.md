@@ -1,6 +1,6 @@
 # Nmap Cheatsheet
 
-## Go-to scan
+## My Go-to scan
 `nmap -sV -sC -vvv -oN scan.txt 10.10.10.198`
 
 ## Full TCP port scan using with service version detection
