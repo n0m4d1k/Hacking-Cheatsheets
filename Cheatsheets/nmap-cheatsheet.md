@@ -9,7 +9,7 @@
 ## Firewall Bypass
 
 #### Send scans from spoofed IPs.
-'nmap -D RND:10'
+`nmap -D RND:10`
 
 #### Requested scan (including ping scans) use tiny fragmented IP packets. Harder for packet filters.
 `nmap -f`
