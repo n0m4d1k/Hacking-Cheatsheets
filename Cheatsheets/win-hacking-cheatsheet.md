@@ -58,10 +58,15 @@
 
 ### Check these files.
 c:\sysprep.inf
+
 c:\sysprep\sysprep.inf
+
 c:\sysprep\sysprep.xml
+
 c:\unattend.xml
+
 %WINDIR%\Panther\Unattend\Unattended.xml
+
 %WINDIR%\Panther\Unattended.xml
 
 <!--
