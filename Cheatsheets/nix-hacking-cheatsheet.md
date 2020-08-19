@@ -73,3 +73,6 @@ Now you can access 172.24.0.2:80, which you didn't have direct access to
 -L 8083:127.0.0.1:8084 (on your machine listen on 8083, send it to my Kali machine on 8084)
 <KALI 127.0.0.1>:8084<------------<REMOTE 10.1.1.230>:8083<------------<REMOTE X.X.X.X>:XXXX
 run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will get it
+
+## sshuttle
+`sshuttle --dns -vvr user@targetip -x targetip 0/0`
