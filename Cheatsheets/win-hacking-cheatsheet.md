@@ -236,3 +236,7 @@ Start
 
 #### Allow execution of scripts in powershell
 `Set-ExecutionPolicy unrestricted`
+
+#### Find Service Using Port
+1. `netstat -ano | finstr "port of intrest"`
+2. `tasklist | findstr "PID with port open"`
