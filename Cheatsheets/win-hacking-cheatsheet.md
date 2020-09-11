@@ -240,3 +240,6 @@ Start
 #### Find Service Using Port
 1. `netstat -ano | finstr "port of intrest"`
 2. `tasklist | findstr "PID with port open"`
+
+#### Permanently Delete Files
+cipher /w:PATH
