@@ -243,3 +243,6 @@ Start
 
 #### Permanently Delete Files
 cipher /w:PATH
+
+#### Check File Hash
+`CertUtil -hashfile <path to file> MD5`
