@@ -141,11 +141,12 @@ For example, we can use "w" to jump to the next word and "b" to jump back one wo
     t  big clock
     ?  list shortcuts
     :  prompt
+    [  navigation mode (hit q to exit)
 
 ## Configurations Options:
 
     # Mouse support - set to on if you want to use the mouse
-    * setw -g mode-mouse off
+    * set -g mouse off
     * set -g mouse-select-pane off
     * set -g mouse-resize-pane off
     * set -g mouse-select-window off
