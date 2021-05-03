@@ -12,3 +12,4 @@ This Repo contains cheatsheets I have developed during my hacking adventures!
 4.  [Metasploit Cheatsheet](/Cheatsheets/metasploit-cheatsheet.md)
 5.  [Nmap Cheatsheet](/Cheatsheets/nmap-cheatsheet.md)
 6.  [Tmux Cheatsheet](/Cheatsheets/tmux-cheatsheet.md)
+7.  [SQL Hacking Cheatsheet](/Cheatsheets/sql-hacking-cheatsheet.md)
