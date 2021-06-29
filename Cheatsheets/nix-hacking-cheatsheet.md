@@ -114,7 +114,7 @@
 ##################################################################
 -->
 
-## Privilage Escalation
+## Privilege Escalation
 
 ### Priv Esc systemctl with user access
 
@@ -122,7 +122,7 @@ _Create protection.service file in writable directory_
 
 ```
 [Unit]
-Discription=Does very important stuff mmmkay
+Description=Does very important stuff mmmkay
 
 [Service]
 Type=simple

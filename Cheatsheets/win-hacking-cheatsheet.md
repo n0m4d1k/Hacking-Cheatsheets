@@ -96,7 +96,7 @@ c:\unattend.xml
 
 ## User Enumeration
 
-#### Show User Privlages
+#### Show User Privileges
 
 `whoami /priv`
 
@@ -106,7 +106,7 @@ c:\unattend.xml
 
 #### List users in a group
 
-`net localgroup administrtor`
+`net localgroup administrator`
 
 #### Show info on specified user
 
