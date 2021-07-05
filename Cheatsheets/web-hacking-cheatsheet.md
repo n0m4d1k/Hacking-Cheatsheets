@@ -21,6 +21,10 @@
 
 `curl -X POST --data randomdata http://targetURL`
 
+#### File Upload
+
+`curl -F ‘data=@path/to/local/file’ UPLOAD_ADDRESS`
+
 <!--
 ##################################################################
 ##################################################################
