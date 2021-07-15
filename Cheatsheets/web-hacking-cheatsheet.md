@@ -17,6 +17,10 @@
 
 `curl http://targetURL`
 
+#### GET Request Show Cookie
+
+`curl -c /tmp/cookies http://targetURL`
+
 #### POST Request
 
 `curl -X POST --data randomdata http://targetURL`
