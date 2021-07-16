@@ -13,9 +13,21 @@
 
 ### cURL
 
+#### Links
+
+[Everything curl](https://everything.curl.dev/)
+
 #### GET Request
 
 `curl http://targetURL`
+
+#### GET Request Save Cookie
+
+`curl -c /tmp/cookies http://targetURL`
+
+#### GET Request with Cookie
+
+`curl -b 'cookiename=cookievalue' https://google.com`
 
 #### POST Request
 
