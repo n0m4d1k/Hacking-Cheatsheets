@@ -14,3 +14,4 @@ This Repo contains cheatsheets I have developed during my hacking adventures!
 6.  [Tmux Cheatsheet](/Cheatsheets/tmux-cheatsheet.md)
 7.  [SQL Hacking Cheatsheet](/Cheatsheets/sql-hacking-cheatsheet.md)
 8.  [Initial Recon Cheatsheet](/Cheatsheets/initial-recon-cheatsheet.md)
+9.  [Tools Cheatsheet](/Cheetsheets/tools-cheatsheet.md)

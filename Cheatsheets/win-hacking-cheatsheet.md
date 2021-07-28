@@ -5,6 +5,21 @@
 ##################################################################
 -->
 
+## Privesc tools
+
+### Download to Target Box
+
+- [winPEAS](https://github.com/carlospolop/PEASS-ng/blob/master/winPEAS/winPEASexe/binaries/Release/winPEASany.exe)
+
+### On Attack Box
+
+- [Windows Exploit Suggester - Next Generation](https://github.com/bitsadmin/wesng)
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## System Enumeration
 
 #### Show Powershell History of Current User

