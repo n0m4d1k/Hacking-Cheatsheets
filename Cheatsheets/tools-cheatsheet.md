@@ -7,11 +7,11 @@
 
 ## Hashcat
 
-## Show example hashes
+#### Show example hashes
 
 `hashcat --example-hashes`
 
-### Crack .htpasswd
+#### Crack .htpasswd
 
 `hashcat -a 0 -m 1600 captured-hash.txt password-list.txt`
 
@@ -22,7 +22,7 @@
 
 ##
 
-###
+####
 
 <!--
 ##################################################################
