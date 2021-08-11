@@ -203,6 +203,7 @@ _or_
 ### Spin up webserver
 
 `python -m SimpleHTTPServer 80`
+`php -S 0.0.0.0:80 -t .`
 
 ### SSH Port Forwarding
 
