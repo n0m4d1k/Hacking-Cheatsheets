@@ -36,6 +36,8 @@
 
 - [winPEAS](https://github.com/carlospolop/PEASS-ng/blob/master/winPEAS/winPEASexe/binaries/Release/winPEASany.exe)
 
+- [windowsprivchecker](https://github.com/Tib3rius/windowsprivchecker/blob/master/windowsprivchecker.bat)
+
 ### On Attack Box
 
 - [Windows Exploit Suggester - Next Generation](https://github.com/bitsadmin/wesng)
