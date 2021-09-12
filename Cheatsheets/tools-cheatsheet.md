@@ -20,11 +20,32 @@
 ##################################################################
 -->
 
-##
+## PDFcrack
 
-####
+#### Bruteforce using Wordlist
+
+`pdfcrack -f document.pdf -w /usr/share/wordlists/rockyou.txt`
 
 <!--
 ##################################################################
 ##################################################################
 -->
+
+## xfreerdp
+
+#### RDP into Box
+
+`xfreerdp hostip`
+
+#### RDP using Username and Password
+
+`xfreerdp -u username -p password hostip`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## rdesktop
+
+`rdesktop hostip`
