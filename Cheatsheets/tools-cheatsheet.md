@@ -56,3 +56,44 @@
 -->
 
 ## [Seatbelt](https://github.com/GhostPack/Seatbelt)
+
+**Seatbelt is a C# project that performs a number of security oriented host-survey "safety checks" relevant from both offensive and defensive security perspectives.**
+**Seatbelt is a great tool for enumerating a windows host for security weaknesses.**
+
+#### Check for UAC bypass
+
+`Seatbelt.exe uac`
+
+#### Show Token Privileges
+
+`Seatbelt.exe TokenPrivileges`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## [SharpUp](https://github.com/GhostPack/SharpUp)
+
+**SharpUp can enumerate the host for any misconfiguration-based priv-esc opportunities.**
+
+#### Run all checks
+
+`SharpUp.exe`
+
+#### Check for Always Install Elevated
+
+`SharpUp.exe AlwaysInstallElevated`
+
+#### Check for Unquoted Service Paths
+
+`SharpUp.exe UnquotedServicePath`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## [PowerView](https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1)
+
+**PowerView has long been the de-facto tool for domain enumeration.**

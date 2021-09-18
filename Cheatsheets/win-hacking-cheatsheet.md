@@ -180,6 +180,95 @@ foreach ($Task in $Tasks)
 ##################################################################
 -->
 
+## Domain Enumeration
+
+### Using Powershell
+
+#### Get Domain Information
+
+`Get-Domain`
+
+#### Get Domain Controllers for current domain
+
+`Get-DomainController | select Forest, Name, OSVersion | fl`
+
+#### Return all domains for current forest
+
+`Get-ForestDomain`
+
+#### Return all domains for specified forest
+
+`Get-ForestDomain -Forest forestname`
+
+#### Return default policy or domain controller policy for current domain/domain controller \*Password Policy
+
+`Get-DomainPolicyData | select -ExpandProperty SystemAccess`
+
+#### Return specified user information with specified properties
+
+`Get-DomainUser -Identity username -Properties DisplayName, MemberOf | fl`
+
+#### Return list of computers on the domain
+
+`Get-DomainComputer -Properties DnsHostName | sort -Property DnsHostName`
+
+#### Search for all organization units (OUs)
+
+`Get-DomainOU -Properties Name | sort -Property Name`
+
+#### Return all groups with Admins in name
+
+`Get-DomainGroup | where Name -like "*Admins*" | select SamAccountName`
+
+#### Return the members of a specific domain group.
+
+`Get-DomainGroupMember -Identity "Domain Admins" | select MemberDistinguishedName`
+
+#### Return all Group Policy Objects (GPOs)
+
+`Get-DomainGPO -Properties DisplayName | sort -Property DisplayName`
+
+#### Enumerate all GPOs that are applied to a particular machine
+
+`Get-DomainGPO -ComputerIdentity wkstn-1 -Properties DisplayName | sort -Property DisplayName`
+
+#### Returns all GPOs that modify local group memberships through Restricted Groups or Group Policy Preferences.
+
+`Get-DomainGPOLocalGroup | select GPODisplayName, GroupName`
+
+#### Enumerates the machines where a specific domain user/group is a member of a specific local group.
+
+`Get-DomainGPOUserLocalGroupMapping -LocalGroup Administrators | select ObjectName, GPODisplayName, ContainerName, ComputerName`
+
+#### Enumerates all machines and queries the domain for users of a specified group (default Domain Admins). Then finds domain machines where those users are logged into.
+
+`Find-DomainUserLocation | select UserName, SessionFromName`
+
+#### Returns session information for the local (or a remote) machine (where CName is the source IP).
+
+`Get-NetSession -ComputerName dc-2 | select CName, UserName`
+
+#### Return all domain trusts for the current domain.
+
+`Get-DomainTrust`
+
+### .NET
+
+#### [SharpView](https://github.com/tevora-threat/SharpView)
+
+### EXE
+
+#### [ADSearch](https://github.com/tomcarver16/ADSearch)
+
+### [Bloodhound](https://bloodhound.readthedocs.io/en/latest/index.html)
+
+#### [SharpHound](https://github.com/BloodHoundAD/SharpHound3)
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## User Enumeration
 
 #### Show User Privileges
