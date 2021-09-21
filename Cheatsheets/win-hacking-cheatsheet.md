@@ -529,3 +529,16 @@ Start
 #### Get information on error codes
 
 `net helpmsg ERRORCODE`
+
+#### Run Base64 encoded powershell commands
+
+`powershell -nop -exec bypass -EncodedCommand base64commandstring`
+
+#### Import Module in Powershell
+
+`ipmo C:\Path\To\Powershell\Tool.ps1`
+
+#### Disable Windows Defender
+
+`Set-MpPreference -DisableRealtimeMonitoring $true` (POWERSHELL)
+`sc stop WinDefend`
