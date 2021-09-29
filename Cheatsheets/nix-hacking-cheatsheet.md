@@ -248,3 +248,11 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 ### Set TTL to trick Hotspot
 
 `sudo sysctl -w net.inet.ip.ttl=65`
+
+### Mutate password list
+
+`hashcat --force passwordsfile -r /usr/share/hashcat/rules/best64.rule --stdout > t`
+
+### Decrypt Base64
+
+`echo -n base64string | base64 -d`
