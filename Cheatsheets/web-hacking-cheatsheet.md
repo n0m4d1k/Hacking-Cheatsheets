@@ -134,6 +134,39 @@
 
 **Tool for cookie hijacking**
 
+### Where to check in code for XSS
+
+Direct Input
+
+    JavaScript code <script></script>
+    CSS Style Code <style></style>
+    Tag/Attribute Fields <div name='INPUT'></div>
+    HTML Comments <!-- -->
+
+If user input goes into any of the above examples, it can inject malicious JavaScript code, which may lead to an XSS vulnerability. In addition to this, JavaScript functions that allow changing raw text of HTML fields, like:
+
+    DOM.innerHTML
+    DOM.outerHTML
+    document.write()
+    document.writeln()
+    document.domain
+
+An the following jQuery functions:
+
+    html()
+    parseHTML()
+    add()
+    append()
+    prepend()
+    after()
+    insertAfter()
+    before()
+    insertBefore()
+    replaceAll()
+    replaceWith()
+
+As these functions write raw text to the HTML code, if any user input goes into them, it may include malicious JavaScript code, which leads to an XSS vulnerability.
+
 <!--
 ##################################################################
 ##################################################################
