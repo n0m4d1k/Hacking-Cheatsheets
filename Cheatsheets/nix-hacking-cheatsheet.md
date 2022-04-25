@@ -256,3 +256,12 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 ### Decrypt Base64
 
 `echo -n base64string | base64 -d`
+
+
+### Setup Virtual Environment
+`virtualenv -p python3 venv`
+`source `
+
+### Switch to a Different Version of Python
+`https://github.com/pyenv/pyenv#installation`
+`https://www.kali.org/docs/general-use/using-eol-python-versions/`
