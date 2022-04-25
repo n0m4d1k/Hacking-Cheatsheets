@@ -260,7 +260,7 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 
 ### Setup Virtual Environment
 `virtualenv -p python3 venv`
-`source `
+`source venv/bin/activate`
 
 ### Switch to a Different Version of Python
 `https://github.com/pyenv/pyenv#installation`
