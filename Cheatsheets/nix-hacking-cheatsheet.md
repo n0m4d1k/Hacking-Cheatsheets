@@ -265,3 +265,34 @@ run nc on port 8084, and if 10.1.1.230:8083 receives a reverse shell, you will g
 ### Switch to a Different Version of Python
 `https://github.com/pyenv/pyenv#installation`
 `https://www.kali.org/docs/general-use/using-eol-python-versions/`
+
+### Clone Website
+Cloning a website for offline testing involves downloading the entire website's contents such as HTML, CSS, JavaScript, images, and other files to your local machine. There are various tools available for this purpose, such as HTTrack and wget, which are two popular options.
+
+Before we go into the how-to, please note that cloning a website for personal use or testing might be okay, but republishing it as your own, or using the clone for commercial purposes, or even simply ignoring robots.txt rules could be illegal and violate copyright laws. Always respect the terms of service of the website you are cloning and the intellectual property rights of its owners.
+
+Here's how you might do it with wget, a command line utility. You'll need to have wget installed on your machine. Most Unix-like operating systems, such as Linux or macOS, come with wget installed. For Windows, you may need to download and install it separately.
+
+    Open a terminal or command prompt.
+    Navigate to the directory where you want to store the website clone. For example:
+
+
+`cd /path/to/your/directory``
+
+    Use the following wget command:
+
+`wget --mirror --convert-links --adjust-extension --page-requisites --no-parent http://example.com``
+
+Here's what each option does:
+
+    --mirror : turn on options suitable for mirroring.
+    --convert-links : after the download, convert the links in the document to make them suitable for local viewing.
+    --adjust-extension : save HTML/CSS files with .html/.css extensions.
+    --page-requisites : download all the files that are necessary to properly display a given HTML page.
+    --no-parent : don't ascend to the parent directory when retrieving recursively.
+
+Replace "http://example.com" with the website you want to clone.
+
+Please keep in mind that these methods do not guarantee a perfect copy, especially for websites that rely on server-side processing. Also, websites with dynamic content (such as those created by JavaScript) might not be copied correctly. Also, keep in mind that this doesn't include databases or other server-side resources.
+
+A lot of the internet is built on the assumption of being online. Some things just won't work correctly offline without extra work.
