@@ -296,3 +296,6 @@ Replace "http://example.com" with the website you want to clone.
 Please keep in mind that these methods do not guarantee a perfect copy, especially for websites that rely on server-side processing. Also, websites with dynamic content (such as those created by JavaScript) might not be copied correctly. Also, keep in mind that this doesn't include databases or other server-side resources.
 
 A lot of the internet is built on the assumption of being online. Some things just won't work correctly offline without extra work.
+
+### Grep for sensitive info
+`grep -r -e '''(?i)((SECRET|PRIVATE|BEGIN|Token|Key|password|(?<Za-z0-9/+=])[A-Za-z0-9/+=]{40}(?![A-Za-z0-9/+=])|@[a-z0-9]{1,100}.(com|org|edu)|bash|python|aws_|AWS_|(?<!\w)[Ss]ecret(?!\w)|(?<!\w)[Aa]ccess(?!\w)|(?<!\w)[Tt]oken(?!\w)|(?<!\w)[Pp]assword(?!\w)|(?<!\w)[Uu]sername(?!\w)|(?<!\w)[Aa]uth(?!\w)|(?<!\w)[Kk]ey(?!\w)|(?<!\w)[Ss]ession(?!\w)|(?<!\w)[Cc]ertificate(?!\w)|(?<!\w)[Mm]fa(?!\w)(access|api).(key|secret|token)|(password|pwd|pass).|((private|public).(key|ssh))|((aws|azure|google).(key|secret|token))))''' *`
