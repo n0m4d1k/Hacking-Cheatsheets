@@ -298,4 +298,5 @@ Please keep in mind that these methods do not guarantee a perfect copy, especial
 A lot of the internet is built on the assumption of being online. Some things just won't work correctly offline without extra work.
 
 ### Grep for sensitive info
-`grep -r -e '''(?i)((SECRET|PRIVATE|BEGIN|Token|Key|password|(?<Za-z0-9/+=])[A-Za-z0-9/+=]{40}(?![A-Za-z0-9/+=])|@[a-z0-9]{1,100}.(com|org|edu)|bash|python|aws_|AWS_|(?<!\w)[Ss]ecret(?!\w)|(?<!\w)[Aa]ccess(?!\w)|(?<!\w)[Tt]oken(?!\w)|(?<!\w)[Pp]assword(?!\w)|(?<!\w)[Uu]sername(?!\w)|(?<!\w)[Aa]uth(?!\w)|(?<!\w)[Kk]ey(?!\w)|(?<!\w)[Ss]ession(?!\w)|(?<!\w)[Cc]ertificate(?!\w)|(?<!\w)[Mm]fa(?!\w)(access|api).(key|secret|token)|(password|pwd|pass).|((private|public).(key|ssh))|((aws|azure|google).(key|secret|token))))''' *`
+`grep -RPie '(SECRET|PRIVATE|BEGIN|Token|Key|password|([A-Za-z0-9/+=]{40})|@[a-z0-9]{1,100}.(com|org|edu)|bash|python|aws_|AWS_|(?<!\w)[Ss]ecret(?!\w)|(?<!\w)[Aa]ccess(?!\w)|(?<!\w)[Tt]oken(?!\w)|(?<!\w)[Pp]assword(?!\w)|(?<!\w)[Uu]sername(?!\w)|(?<!\w)[Aa]uth(?!\w)|(?<!\w)[Kk]ey(?!\w)|(?<!\w)[Ss]ession(?!\w)|(?<!\w)[Cc]ertificate(?!\w)|(?<!\w)[Mm]fa(?!\w)(access|api).(key|secret|token)|(password|pwd|pass).|((private|public).(key|ssh))|((aws|azure|google).(key|secret|token)))' *
+`
