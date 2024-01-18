@@ -269,6 +269,31 @@ foreach ($Task in $Tasks)
 ##################################################################
 -->
 
+## Attacking AD
+
+#### List Domain Users  
+
+`net user /domain`
+
+#### Query Domain User Info
+
+`net user $USERNAME /domain`
+
+#### List Domain Groups
+
+`net group /domain`
+
+#### List Users in Group
+
+`net group "GROUPNAME" /domain`
+
+
+
+<!--
+##################################################################
+##################################################################
+-->
+
 ## User Enumeration
 
 #### Show User Privileges
@@ -542,3 +567,8 @@ Start
 
 `Set-MpPreference -DisableRealtimeMonitoring $true` (POWERSHELL)
 `sc stop WinDefend`
+
+
+#### Connect Linux to Windows via RDP
+
+`xfreerdp /u:$USERNAME /d:$DOMAIN /v:$ENDPOINTIP`
